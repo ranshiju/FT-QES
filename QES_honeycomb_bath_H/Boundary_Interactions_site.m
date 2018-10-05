@@ -1,7 +1,7 @@
-function [Hb1,Hb2,dg, Hb]=Boundary_Interactions_site(v,U,ISsvd)
+function [Hb1,Hb2,dg, Hb]=Boundary_Interactions_site(v,U,ISsvd, tau)
 [d1,D,~]=size(v); d=2;
 
-Hb=reshape( permute(v,[1,3,2]),[d1*d1,D] ) * U.';
+Hb=reshape( permute( reshape( reshape( permute(v,[1,3,2]),[d1*d1,D] ) * U.', [d1, d1, d, d]),[1, 3, 2, 4] ),[d1*d, d1*d] );
 if(ISsvd)
     Eps=1e-15;
     
@@ -15,5 +15,6 @@ else
     dg=d*d;
 end
 Hb1=permute(Hb1,[1,3,2]); Hb2=permute(Hb2,[1,3,2]);
+Hb = (eye(size(Hb)) - Hb) / tau;
 Hb = Hb - trace(Hb)*eye(size(Hb))/d1/d;
 end
