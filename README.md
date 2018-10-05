@@ -1,6 +1,7 @@
 # FT-QES
 * Codes for calculating the physical-bath Hamiltonians of 1D and 2D (homeycomb) models  
-* Ref: "Quantum simulation for thermodynamics of infinite-size many-body systems by O(10) sites" ([arXiv:1810.01612](https://arxiv.org/abs/1810.01612))  
+* Ref: "Quantum simulation for thermodynamics of infinite-size many-body systems by O(10) sites" ([arXiv:1810.01612](https://arxiv.org/abs/1810.01612)) 
+* The Hamiltonains are given by Hermitian matrices in the computational basis (the eigenstates of the z spin-half operator) 
 
 ## For 1D chain, see 'QES_1D_bath_H'
 Step 1. prepare Parameter.m. One may edit the physical and computational parameters as your wish  
